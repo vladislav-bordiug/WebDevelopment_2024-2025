@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Карта изображений</title>
+  <script>
+    function changeColor() {
+      let img = document.getElementById("mainImage");
+      if (img.src.indexOf("sample.jpg") !== -1) {
+        img.src = "images/sample2.jpg";
+      } else {
+        img.src = "images/sample.jpg";
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Главная страница</h1>
+  <p>Нажмите на области изображения для выполнения различных действий:</p>
+  <img id="mainImage" src="images/sample.jpg" usemap="#imagemap" alt="Пример карты изображений">
+
+  <map name="imagemap">
+    <!-- 1. Прямоугольная область: переход на page1.html -->
+    <area shape="rect" coords="50,50,150,150" href="page1.html" alt="Прямоугольник">
+    
+    <!-- 2. Круглая область: переход на page2.html -->
+    <area shape="circle" coords="300,100,50" href="page2.html" alt="Круг">
+    
+    <!-- 3. Многоугольная область: переход на page3.html -->
+    <area shape="poly" coords="200,200,250,250,220,300,180,280" href="page3.html" alt="Многоугольник">
+    
+    <!-- 4. Прямоугольная область с обработчиком onclick -->
+    <area shape="rect" coords="50,200,150,300" href="javascript:void(0);" alt="Смена цвета" onclick="changeColor();">
+    
+    <!-- 5. Еще одна многоугольная область: переход на page4.html -->
+    <area shape="poly" coords="300,200,350,220,340,280,290,260" href="page4.html" alt="Многоугольник">
+  </map>
+</body>
+</html>
